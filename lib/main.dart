@@ -1,11 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/Home.dart';
+import 'package:portfolio/Mobile/Home.dart';
+import 'package:portfolio/Responsive/responsive.dart';
 import 'package:portfolio/firebase_options.dart';
-import 'package:portfolio/personalproject/Fashion.dart';
+import 'package:portfolio/laptop/Home.dart';
 
-void main() async{
-   WidgetsFlutterBinding.ensureInitialized();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
@@ -17,11 +18,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           useMaterial3: true,
         ),
-        home: Home());
+        home: ResponsiveLayout(
+            mobileScaffold: MobileHome(),
+            desktopScaffold: LapHome(),
+            tabletScaffold: LapHome()));
   }
 }

@@ -45,7 +45,7 @@ class _Container1State extends State<Container1> {
   Widget build(BuildContext context) {
     return Container(
       height: 700,
-    width: MediaQuery.sizeOf(context).width/3.5,
+      width: MediaQuery.sizeOf(context).width / 3.5,
       decoration: BoxDecoration(
           image: DecorationImage(
               image: AssetImage(widget.image), fit: BoxFit.fill)),
@@ -77,20 +77,21 @@ class _Container2State extends State<Container2> {
       child: Column(
         children: [
           Container(
-            height: 500,
-          width: MediaQuery.sizeOf(context).width/5,
+            height: MediaQuery.sizeOf(context).width / 2,
+            width: MediaQuery.sizeOf(context).width / 5,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(widget.image),
                 fit: BoxFit.fill,
               ),
             ),
-
           ),
           Gap(20),
           Center(
-            child: CustomText(title:widget.title  ,size: 16,
-                color: Color.fromRGBO(222, 222, 222, 1),
+            child: CustomText(
+                title: widget.title,
+                size: 16,
+                color: Colors.black,
                 weight: FontWeight.w700),
           ),
         ],
@@ -98,19 +99,6 @@ class _Container2State extends State<Container2> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 class CustomProject extends StatefulWidget {
   final String title;
@@ -144,31 +132,26 @@ class _CustomProjectState extends State<CustomProject> {
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.only(top: 50,bottom: 50),
+            padding: const EdgeInsets.only(top: 50, bottom: 50),
             child: SizedBox(
               height: 2000,
               width: 1000,
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  childAspectRatio: 1/2
-                ),
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    childAspectRatio: 1 / 2),
                 itemCount: widget.images.length,
                 itemBuilder: (context, index) {
                   return GestureDetector(
-                    onTap: () {
-
-                    },
+                    onTap: () {},
                     child: Container(
-
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8.0),
                         image: DecorationImage(
                           image: AssetImage(widget.images[index]),
-                          fit: BoxFit.fill
-                          ,
+                          fit: BoxFit.fill,
                         ),
                       ),
                     ),
