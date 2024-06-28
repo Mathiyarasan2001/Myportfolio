@@ -19,6 +19,7 @@ class LapProfile extends StatelessWidget {
           width: MediaQuery.sizeOf(context).width / 10,
         ),
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               height: MediaQuery.sizeOf(context).height / 1.7,
@@ -28,101 +29,72 @@ class LapProfile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CustomText(
-                      title: "Hi, I am",
+                      title: "Hi, I'm",
                       size: 40,
-                      color: Colors.black,
+                      color: Color.fromRGBO(3, 4, 94, 1),
                       weight: FontWeight.w700),
                   CustomText(
                       title: "S.Mathiyarasan",
                       size: mathitext,
-                      color: Colors.black,
+                      color: Color.fromRGBO(3, 4, 94, 1),
                       weight: FontWeight.w700),
                   CustomText(
                       title: "Flutter Developer",
                       size: 25,
-                      color: Color.fromRGBO(144, 144, 144, 1),
+                      color: Color.fromRGBO(3, 4, 94, 1),
                       weight: FontWeight.w800),
                   Gap(30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 56,
-                        width: 61,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Scaffold(
+                            appBar: AppBar(
+                              centerTitle: true,
+                              title: Text("Resume"),
+                            ),
+                            body: Center(
+                              child: Image.asset(
+                                  "assets/Mathiyarasan_resume_page-0001.jpg"),
+                            ),
+                          ),
                         ),
-                        child: Container(
-                          height: 34,
-                          width: 34,
-                          child: Image.asset("assets/linkedin.png"),
-                        ),
-                      ),
-                      Gap(30),
-                      Container(
-                        height: 56,
-                        width: 61,
-                        decoration:
-                            BoxDecoration(color: Colors.white, boxShadow: [
-                     
-                        ]),
-                        child: Container(
-                          height: 34,
-                          width: 34,
-                          child: Image.asset("assets/Github.png"),
-                        ),
-                      ),
-                      Gap(30),
-                      Container(
-                        height: 56,
-                        width: 61,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                        ),
-                        child: Container(
-                          height: 34,
-                          width: 34,
-                          child: Image.asset("assets/mail.png"),
-                        ),
-                      )
-                    ],
-                  ),
-                  Gap(30),
-                  Container(
+                      );
+                    },
+                    child: Container(
                       height: 50,
                       width: 100,
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black, width: 3)),
+                        border: Border.all(color: Colors.black, width: 3),
+                      ),
                       child: Center(
-                          child: CustomText(
-                              title: "Resume",
-                              size: 18,
-                              color: Colors.black,
-                              weight: FontWeight.w500)))
+                        child: CustomText(
+                          title: "Resume",
+                          size: 18,
+                          color: Color.fromRGBO(3, 4, 94, 1),
+                          weight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
-
-            // SizedBox(
-            //   height: 90,
-            //   width: 800,
-            //   child: CustomText(
-            //       title:
-            //           "Skilled Flutter developer proficient in Dart and experienced in building high-quality mobile applications. Collaborates effectively with design and engineering teams to deliver user-centric solutions.",
-            //       size: 20,
-            //       color: Color.fromRGBO(222, 222, 222, 1),
-            //       weight: FontWeight.w600),
-            // ),
           ],
         ),
         SizedBox(
           width: MediaQuery.sizeOf(context).width / 50,
         ),
-
         CircleAvatar(
           radius: responsiveRadius,
-          backgroundImage: AssetImage("assets/db.jpg"),
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(1000),
+                image: DecorationImage(
+                    image: AssetImage("assets/my photo.jpg"),
+                    fit: BoxFit.fill)),
+          ),
         )
       ],
     );

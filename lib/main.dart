@@ -4,6 +4,8 @@ import 'package:portfolio/Mobile/Home.dart';
 import 'package:portfolio/Responsive/responsive.dart';
 import 'package:portfolio/firebase_options.dart';
 import 'package:portfolio/laptop/Home.dart';
+import 'package:portfolio/laptop/myProject.dart';
+import 'package:portfolio/personalproject/api.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

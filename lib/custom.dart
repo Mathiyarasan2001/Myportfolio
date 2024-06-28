@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomText extends StatefulWidget {
   final String title;
@@ -142,7 +144,7 @@ class _CustomProjectState extends State<CustomProject> {
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
                     childAspectRatio: 1 / 2),
-                itemCount: widget.images.length,
+                // itemCount: widget.images.length,
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {},
@@ -154,6 +156,7 @@ class _CustomProjectState extends State<CustomProject> {
                           fit: BoxFit.fill,
                         ),
                       ),
+                      child: Lottie.asset("assets/lottiefile/MobileApp.json"),
                     ),
                   );
                 },
@@ -162,6 +165,115 @@ class _CustomProjectState extends State<CustomProject> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class Consttext {
+  static String Firstyear = "2017 - 2019";
+  static String Secondyear = "2017 - 2019";
+  static String Thirdyear = "2017 - 2019";
+  static String Firsttext = "";
+}
+
+class AppProjectContainer extends StatelessWidget {
+  final String title;
+  final String Subtitle;
+  final ImageProvider images;
+  final VoidCallback ontap1;
+  final VoidCallback ontap2;
+  const AppProjectContainer(
+      {required this.title,
+      required this.Subtitle,
+      required this.images,
+      required this.ontap1,
+      required this.ontap2,
+      super.key});
+  Future<void> _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final mathiWidth1 = MediaQuery.of(context).size.width;
+    final mathiHeight1 = MediaQuery.of(context).size.height;
+    final mathitext1 = (mathiWidth1 + mathiHeight1) / 100 * 100 / 120;
+    final mathiWidth3 = MediaQuery.of(context).size.width;
+    final mathiHeight3 = MediaQuery.of(context).size.height;
+    final mathitext3 = (mathiWidth3 + mathiHeight3) / 50 * 50 / 50;
+
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Container(
+          child: Container(
+            height: MediaQuery.sizeOf(context).height / 3,
+            width: MediaQuery.sizeOf(context).width / 4,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color: Colors.black),
+                image: DecorationImage(image: images, fit: BoxFit.fill)),
+            // child: Image.asset("assets/GifFiles/Betting.gif",
+            //     fit: BoxFit.fill),
+          ),
+        ),
+        SizedBox(
+          height: MediaQuery.sizeOf(context).height / 2.5,
+          width: MediaQuery.sizeOf(context).width / 2,
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CustomText(
+                    title: title,
+                    size: mathitext3,
+                    color: Colors.blue,
+                    weight: FontWeight.w600),
+                CustomText(
+                    title: Subtitle,
+                    size: mathitext1,
+                    color: Colors.white,
+                    weight: FontWeight.w600),
+                Row(
+                  children: [
+                    TextButton(
+                      style: TextButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          fixedSize: Size(100, 40)),
+                      onPressed: ontap1,
+                      child: CustomText(
+                          title: "Link ",
+                          size: 18,
+                          color: Colors.white,
+                          weight: FontWeight.w600),
+                    ),
+                    SizedBox(
+                      width: MediaQuery.sizeOf(context).width / 20,
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          fixedSize: Size(150, 40)),
+                      onPressed: ontap2,
+                      child: CustomText(
+                          title: "Screenshots",
+                          size: 18,
+                          color: Colors.white,
+                          weight: FontWeight.w600),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

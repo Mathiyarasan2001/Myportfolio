@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
+import 'package:portfolio/Social.dart';
 
 import 'package:portfolio/custom.dart';
 import 'package:portfolio/laptop/Aboutme.dart';
@@ -10,6 +11,7 @@ import 'package:portfolio/laptop/Contact.dart';
 import 'package:portfolio/laptop/Profile.dart';
 import 'package:portfolio/laptop/bottom.dart';
 import 'package:portfolio/laptop/myProject.dart';
+import 'package:portfolio/laptop/resume.dart';
 import 'package:portfolio/laptop/skill.dart';
 
 class LapHome extends StatefulWidget {
@@ -23,6 +25,7 @@ class _LapHomeState extends State<LapHome> {
   final GlobalKey _aboutme = GlobalKey();
   final GlobalKey _skills = GlobalKey();
   final GlobalKey _myproject = GlobalKey();
+  final GlobalKey _Resume = GlobalKey();
   final GlobalKey _contact = GlobalKey();
   final GlobalKey _gototop = GlobalKey();
   void _aboutmescroll() {
@@ -45,6 +48,11 @@ class _LapHomeState extends State<LapHome> {
         duration: Duration(seconds: 1), curve: Curves.easeInOut);
   }
 
+  void _Resumecroll() {
+    Scrollable.ensureVisible(_Resume.currentContext!,
+        duration: Duration(seconds: 1), curve: Curves.easeInOut);
+  }
+
   void _topscroll() {
     Scrollable.ensureVisible(_gototop.currentContext!,
         duration: Duration(seconds: 1), curve: Curves.easeInOut);
@@ -52,18 +60,23 @@ class _LapHomeState extends State<LapHome> {
 
   @override
   Widget build(BuildContext context) {
+    final mathiWidth = MediaQuery.of(context).size.width;
+    final mathiHeight = MediaQuery.of(context).size.height;
+    final mathitext = (mathiWidth + mathiHeight) / 100 * 100 / 90;
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-    final text = (screenWidth + screenHeight) / 50 * 40 / 100;
+    final text = (screenWidth + screenHeight) / 50 * 40 / 90;
 
     return Scaffold(
-      backgroundColor: Color.fromRGBO(215, 215, 215, 1),
+      // backgroundColor: Colors.white,
+      backgroundColor: Color.fromRGBO(251, 248, 204, 1),
+      // backgroundColor: Color.fromRGBO(215, 215, 215, 1),
       // backgroundColor: Color(0xfffbf8cc),
       appBar: AppBar(
         title: CustomText(
             title: "Mathi",
             size: 30,
-            color: Colors.black,
+            color: Color.fromRGBO(3, 4, 94, 1),
             weight: FontWeight.bold),
         actions: [
           InkWell(
@@ -71,77 +84,90 @@ class _LapHomeState extends State<LapHome> {
               child: CustomText(
                   title: "About Me",
                   size: text,
-                  color: Colors.black,
-                  weight: FontWeight.w700)),
+                  color: Color.fromRGBO(3, 4, 94, 1),
+                  weight: FontWeight.w900)),
           SizedBox(
-            width: MediaQuery.sizeOf(context).width / 12,
+            width: MediaQuery.sizeOf(context).width / 50,
           ),
           InkWell(
               onTap: _skillscroll,
               child: CustomText(
                   title: "Skills",
                   size: text,
-                  color: Colors.black,
-                  weight: FontWeight.w700)),
+                  color: Color.fromRGBO(3, 4, 94, 1),
+                  weight: FontWeight.w900)),
           SizedBox(
-            width: MediaQuery.sizeOf(context).width / 12,
+            width: MediaQuery.sizeOf(context).width / 50,
           ),
           InkWell(
               onTap: _myprojectscroll,
               child: CustomText(
                   title: "My Projects",
                   size: text,
-                  color: Colors.black,
-                  weight: FontWeight.w700)),
+                  color: Color.fromRGBO(3, 4, 94, 1),
+                  weight: FontWeight.w900)),
           SizedBox(
-            width: MediaQuery.sizeOf(context).width / 12,
+            width: MediaQuery.sizeOf(context).width / 50,
+          ),
+          InkWell(
+              onTap: _Resumecroll,
+              child: CustomText(
+                  title: "Resume",
+                  size: text,
+                  color: Color.fromRGBO(3, 4, 94, 1),
+                  weight: FontWeight.w900)),
+          SizedBox(
+            width: MediaQuery.sizeOf(context).width / 50,
           ),
           InkWell(
               onTap: _contactscroll,
               child: CustomText(
                   title: "Contact Me",
                   size: text,
-                  color: Colors.black,
-                  weight: FontWeight.w700)),
-          Gap(50)
+                  color: Color.fromRGBO(3, 4, 94, 1),
+                  weight: FontWeight.w900)),
+          Gap(50),
+          Social()
         ],
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromRGBO(251, 248, 204, 1),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              width: MediaQuery.sizeOf(context).width / 12,
-            ),
             LapProfile(
               key: _gototop,
             ),
-            Gap(50),
+
             LapAboutus(
               key: _aboutme,
             ),
-            Gap(50),
+
             Lapskill(
               key: _skills,
             ),
-            Gap(200),
+            Gap(30),
+
             Myproject(
               key: _myproject,
             ),
-            Gap(100),
-            Lapcontact(
-              key: _contact,
-            ),
             Gap(50),
+            Resume(
+              key: _Resume,
+            ),
+            // Lapcontact(
+            // key: _contact,
+            // ),
+            // Gap(50),
 
             Container(
-              height: 400,
+              key: _contact,
+              height: 300,
               width: 1900,
               color: Colors.black,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   IconButton(
@@ -152,48 +178,33 @@ class _LapHomeState extends State<LapHome> {
                       size: 20,
                     ),
                   ),
-                  Gap(10),
                   CustomText(
                       title: "BACK TO TOP",
                       size: 15,
                       color: Colors.white,
                       weight: FontWeight.w500),
-                  Gap(30),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                  Gap(50),
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                          height: 28,
-                          width: 30,
-                          child: Image.asset(
-                            "assets/bottom/facebook.png",
-                            fit: BoxFit.fill,
-                          )),
-                      Gap(20),
-                      Container(
-                          height: 28,
-                          width: 30,
-                          child: Image.asset("assets/bottom/limkedin.png",
-                              fit: BoxFit.fill)),
-                      Gap(20),
-                      Container(
-                          height: 28,
-                          width: 30,
-                          child: Image.asset("assets/bottom/insta.png",
-                              fit: BoxFit.fill)),
-                      Gap(20),
-                      Container(
-                          height: 28,
-                          width: 30,
-                          child: Image.asset("assets/bottom/gmail.png",
-                              fit: BoxFit.fill)),
+                      CustomText(
+                          title: "Email:mathiyarsans2001@gmail.com",
+                          size: mathitext,
+                          color: Colors.white,
+                          weight: FontWeight.w600),
+                      CustomText(
+                          title: "Call: +91 6383185407",
+                          size: mathitext,
+                          color: Colors.white,
+                          weight: FontWeight.w600),
+                      Gap(30),
+                      Social()
                     ],
                   )
                 ],
               ),
             )
-            // Bottom(onpress: _topscroll)
           ],
         ),
       ),
