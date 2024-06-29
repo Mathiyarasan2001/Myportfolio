@@ -22,10 +22,10 @@ class _MovieApiState extends State<MovieApi> {
     return GridView.builder(
       itemCount: api.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 4, crossAxisSpacing: 10, mainAxisSpacing: 10),
+          crossAxisCount: 3, crossAxisSpacing: 10, mainAxisSpacing: 10,childAspectRatio: 1/2),
       itemBuilder: (context, index) {
         return Container(
-          height: 100,
+          height: 150,
           width: 150,
           decoration: BoxDecoration(
               image: DecorationImage(

@@ -1,33 +1,13 @@
 {
   "project_info": {
-    "project_number": "433656122300",
-    "firebase_url": "https://fir-7056e-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "fir-7056e",
-    "storage_bucket": "fir-7056e.appspot.com"
+    "project_number": "243103380701",
+    "project_id": "myportfolio-e6b79",
+    "storage_bucket": "myportfolio-e6b79.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:433656122300:android:fa6cc552cd71e473ebf9b9",
-        "android_client_info": {
-          "package_name": "com.example.firebasechat"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCIR7Su7ZL5rDF1UlTte9obz0HShNuCCdg"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:433656122300:android:1d6835c42a2f996aebf9b9",
+        "mobilesdk_app_id": "1:243103380701:android:ecfb08708212fe23fe1734",
         "android_client_info": {
           "package_name": "com.example.portfolio"
         }
@@ -35,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCIR7Su7ZL5rDF1UlTte9obz0HShNuCCdg"
+          "current_key": "AIzaSyAjX9HyiELAXTa6eeY0V21yDiTYiZMJlBg"
         }
       ],
       "services": {

@@ -159,7 +159,7 @@ class _LapHomeState extends State<LapHome> {
             // Lapcontact(
             // key: _contact,
             // ),
-            // Gap(50),
+            Gap(50),
 
             Container(
               key: _contact,

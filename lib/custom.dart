@@ -201,10 +201,10 @@ class AppProjectContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final mathiWidth1 = MediaQuery.of(context).size.width;
     final mathiHeight1 = MediaQuery.of(context).size.height;
-    final mathitext1 = (mathiWidth1 + mathiHeight1) / 100 * 100 / 120;
+    final mathitext1 = (mathiWidth1 + mathiHeight1) / 100 * 100 / 150;
     final mathiWidth3 = MediaQuery.of(context).size.width;
     final mathiHeight3 = MediaQuery.of(context).size.height;
-    final mathitext3 = (mathiWidth3 + mathiHeight3) / 50 * 50 / 50;
+    final mathitext3 = (mathiWidth3 + mathiHeight3) / 50 * 50 / 100;
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -212,8 +212,8 @@ class AppProjectContainer extends StatelessWidget {
       children: [
         Container(
           child: Container(
-            height: MediaQuery.sizeOf(context).height / 3,
-            width: MediaQuery.sizeOf(context).width / 4,
+            height: MediaQuery.sizeOf(context).height / 5,
+            width: MediaQuery.sizeOf(context).width / 3,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(color: Colors.black),
@@ -223,7 +223,7 @@ class AppProjectContainer extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: MediaQuery.sizeOf(context).height / 2.5,
+          height: MediaQuery.sizeOf(context).height / 4.5,
           width: MediaQuery.sizeOf(context).width / 2,
           child: Center(
             child: Column(
@@ -245,25 +245,25 @@ class AppProjectContainer extends StatelessWidget {
                     TextButton(
                       style: TextButton.styleFrom(
                           backgroundColor: Colors.blue,
-                          fixedSize: Size(100, 40)),
+                          fixedSize: Size(50, 10)),
                       onPressed: ontap1,
                       child: CustomText(
                           title: "Link ",
-                          size: 18,
+                          size: 12,
                           color: Colors.white,
                           weight: FontWeight.w600),
                     ),
                     SizedBox(
-                      width: MediaQuery.sizeOf(context).width / 20,
+                      width: MediaQuery.sizeOf(context).width / 25,
                     ),
                     TextButton(
                       style: TextButton.styleFrom(
                           backgroundColor: Colors.blue,
-                          fixedSize: Size(150, 40)),
+                          fixedSize: Size(100, 10)),
                       onPressed: ontap2,
                       child: CustomText(
                           title: "Screenshots",
-                          size: 18,
+                          size: 12,
                           color: Colors.white,
                           weight: FontWeight.w600),
                     )
